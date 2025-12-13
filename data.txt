@@ -1,2 +1,2 @@
-1  Kia Rondo 2024  Kia  SUV  2024  10000.0
-2  Honda Civic 2010  Honda  Sedan  2010  7000.0
+1, Kia Rondo 2024, Kia, SUV, 2024, 10000.0
+2, Honda Civic 2010, Honda, Sedan, 2010, 7000.0

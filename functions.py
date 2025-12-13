@@ -1,14 +1,14 @@
 class car:
     def __init__(self,id,name,make,body,year,value):
-        self.__name = name
         self.__id = id
+        self.__name = name
         self.__make = make
         self.__body = body
         self.__year = year
         self.__value = value
         
     def __str__(self):
-        return f"{self.__id}  {self.__name}  {self.__make}  {self.__body}  {self.__year}  {self.__value}"
+        return f"{self.__id}, {self.__name}, {self.__make}, {self.__body}, {self.__year}, {self.__value}"
     def set_name(self,new_name):
         self.__name = new_name
     def set_id(self,new_id):
@@ -109,7 +109,7 @@ def add_car(carlist,id,name,make,body,year,value):
         new_car = car(id,name,make,body,year,value)
         carlist.append(new_car)
         print("Vehicle added to inventory")
-        print(carlist[-1])
+        print(str(carlist[-1]).replace(",", "  "))
     return carlist
 
 def remove_car(carlist,id):
@@ -151,6 +151,7 @@ def edit_car(carlist,id):
             input_value = float(input(""))
             vehicle.set_value(input_value)
             id_check = True
+            print("Car's new info is:", str(vehicle).replace(",", "  "))
     if id_check == False:
         print("Car not found")
     return carlist
@@ -171,7 +172,7 @@ def run_search_car(carlist):
             id_index = search_id(carlist,input_id)
             if id_index != -1:
                 print("Car found")
-                print(carlist[id_index])
+                print(str(carlist[id_index]).replace(",","  "))
             else:
                 print("Car not found")
         elif user_input == 2:
@@ -180,7 +181,7 @@ def run_search_car(carlist):
             car_index = search_name(carlist,input_name,)
             if car_index != -1:
                 print("Car found")
-                print(carlist[car_index])
+                print(str(carlist[car_index]).replace(",", "  "))
             else:
                 print("Car not found")
         elif user_input == -1:
@@ -209,11 +210,19 @@ def run_add_car(carlist):
         input_value = float(input(""))
         carlist = add_car(carlist,input_id,input_name,input_make,input_body,input_year,input_value)
         print("Would you like to add another car? (y/yes to continue, n/no to stop)")
-        choice = input("").lower()
-        if choice == "yes" or choice == "y":
-            continue
-        if choice == "no" or choice == "n":
-            loop_check = False
+        checky = True
+        while checky:
+            choice = input("").lower()
+            if choice == "yes" or choice == "y":
+                checky= False
+                continue
+            if choice == "no" or choice == "n":
+                loop_check = False
+                checky = False
+            else:
+                print("Please Enter a valid response.")
+    
+
     return carlist
 
 def run_edit_car(carlist):
@@ -243,7 +252,6 @@ def run_remove_car(carlist):
         print("Enter the id of the car you want to remove from inventory.")
         input_id = int(input(""))
         carlist = remove_car(carlist,input_id)
-        print("Car removed from inventory.")
         print("Would you like to remove more cars? y(yes)/n(no)")
         loop_checker = input("").lower()
         if loop_checker == "y" or loop_checker == "yes":
@@ -259,7 +267,7 @@ def print_list(carlist):
     :param carlist: list of car classes
     '''
     for vehicle in carlist:
-        print(vehicle)
+        print(str(vehicle).replace(",", "  "))
 def save_info(carlist):
     '''
     Saves the strings from the car classes to the data.txt file
@@ -267,10 +275,7 @@ def save_info(carlist):
     
     :param carlist: list of car classes
     '''
-    for vehicle in carlist:
-        if carlist.index(vehicle) == 0:
-            with open("data.txt","w") as f:
-                f.write(vehicle.__str__()+"\n")
-        else:
-            with open("data.txt","a") as f:
-                f.write(vehicle.__str__()+"\n")
+    with open("data.txt", "w") as f:
+        for car in carlist:
+            f.write(str(car) + "\n")
+    print(f"{len(carlist)} car(s) saved successfully.")

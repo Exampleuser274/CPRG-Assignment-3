@@ -2,8 +2,8 @@ import functions as fn
 carlist = []
 with open("data.txt") as f:
     for x in f:
-        car_info = x.split(" ")
-        new_car = fn.car(int(car_info[0]),car_info[1],car_info[2],float(car_info[3]),int(car_info[4]))
+        car_info = x.split(',')
+        new_car = fn.car(int(car_info[0]),car_info[1],car_info[2],car_info[3],int(car_info[4]),float(car_info[5]))
         carlist.append(new_car)
 
 print("Welcome to the Car Management System")

@@ -1,0 +1,215 @@
+Welcome to the Car Management System
+What would you like to do today?
+-Add a car? enter 1
+-Search for car 2
+-Edit car info? enter 3
+-Remove a car? enter 4
+-Print the car list? enter 5
+-Save the data to a file? enter 6
+-Exit the program? Enter 0
+1
+Enter id of the car, followed by the car's information
+ID:
+1
+Name:
+Kia Rondo 2024
+Make:
+Kia
+Body:
+SUV
+year:
+2024
+Value:
+10000
+Vehicle added to inventory
+1   Kia Rondo 2024   Kia   SUV   2024   10000.0
+Would you like to add another car? (y/yes to continue, n/no to stop)
+y
+Enter id of the car, followed by the car's information
+ID:
+1
+Name:
+Honda Civic 2010
+Make:
+Honda
+Body:
+Sedan
+year:
+2010
+Value:
+7000
+ERROR
+ID already in the system
+Would you like to add another car? (y/yes to continue, n/no to stop)
+y
+Enter id of the car, followed by the car's information
+ID:
+2
+Name:
+Honda Civic 2010
+Make:
+Honda
+Body:
+Sedan
+year:
+2010
+Value:
+7000
+Vehicle added to inventory
+2   Honda Civic 2010   Honda   Sedan   2010   7000.0
+Would you like to add another car? (y/yes to continue, n/no to stop)
+y
+Enter id of the car, followed by the car's information
+ID:
+3
+Name:
+Honda Civic 2010
+Make:
+Honda
+Body:
+Sedan
+year:
+2010
+Value:
+7000
+The car is already in inventory. No action is required.
+Would you like to add another car? (y/yes to continue, n/no to stop)
+y
+Enter id of the car, followed by the car's information
+ID:
+3
+Name:
+BMW_x1
+Make:
+BMW
+Body:
+Sedan
+year:
+2010
+Value:
+20000
+Vehicle added to inventory
+3   BMW_x1   BMW   Sedan   2010   20000.0
+Would you like to add another car? (y/yes to continue, n/no to stop)
+n
+What would you like to do today?
+-Add a car? enter 1
+-Search for car 2
+-Edit car info? enter 3
+-Remove a car? enter 4
+-Print the car list? enter 5
+-Save the data to a file? enter 6
+-Exit the program? Enter 0
+2
+To search using the Id enter 1. To search using the name enter 2. Enter -1 to return to the previous menu
+1
+Please Enter the id of the car
+1
+Car found
+1   Kia Rondo 2024   Kia   SUV   2024   10000.0
+To search using the Id enter 1. To search using the name enter 2. Enter -1 to return to the previous menu
+2
+Please enter the name of the car
+Honda Civic 2010
+Car found
+2   Honda Civic 2010   Honda   Sedan   2010   7000.0
+To search using the Id enter 1. To search using the name enter 2. Enter -1 to return to the previous menu
+2
+Please enter the name of the car
+byd 
+Car not found
+To search using the Id enter 1. To search using the name enter 2. Enter -1 to return to the previous menu
+-1
+What would you like to do today?
+-Add a car? enter 1
+-Search for car 2
+-Edit car info? enter 3
+-Remove a car? enter 4
+-Print the car list? enter 5
+-Save the data to a file? enter 6
+-Exit the program? Enter 0
+3
+Enter the id of the car. Enter -1 to return to the previous menu
+3
+Name:
+BMW_x2
+Make:
+BMW
+Body:
+Sedan
+Year:
+2020
+Value:
+30000
+Car's new info is: 3   BMW_x2   BMW   Sedan   2020   30000.0
+Enter the id of the car. Enter -1 to return to the previous menu
+-1
+What would you like to do today?
+-Add a car? enter 1
+-Search for car 2
+-Edit car info? enter 3
+-Remove a car? enter 4
+-Print the car list? enter 5
+-Save the data to a file? enter 6
+-Exit the program? Enter 0
+4
+Enter the id of the car you want to remove from inventory.
+3
+Car removed
+Would you like to remove more cars? y(yes)/n(no)
+n
+What would you like to do today?
+-Add a car? enter 1
+-Search for car 2
+-Edit car info? enter 3
+-Remove a car? enter 4
+-Print the car list? enter 5
+-Save the data to a file? enter 6
+-Exit the program? Enter 0
+5
+1   Kia Rondo 2024   Kia   SUV   2024   10000.0
+2   Honda Civic 2010   Honda   Sedan   2010   7000.0
+What would you like to do today?
+-Add a car? enter 1
+-Search for car 2
+-Edit car info? enter 3
+-Remove a car? enter 4
+-Print the car list? enter 5
+-Save the data to a file? enter 6
+-Exit the program? Enter 0
+6
+2 car(s) saved successfully.
+What would you like to do today?
+-Add a car? enter 1
+-Search for car 2
+-Edit car info? enter 3
+-Remove a car? enter 4
+-Print the car list? enter 5
+-Save the data to a file? enter 6
+-Exit the program? Enter 0
+0
+Exiting program immediately. Goodbye!
+
+ryandezall@The-Black-Pearl CPRG-Assignment-3 % /usr/local/bin/python3 /Users/ryandezall/Documents/Fall2025/CPRG-Assignment-3/main.py
+Welcome to the Car Management System
+What would you like to do today?
+-Add a car? enter 1
+-Search for car 2
+-Edit car info? enter 3
+-Remove a car? enter 4
+-Print the car list? enter 5
+-Save the data to a file? enter 6
+-Exit the program? Enter 0
+5
+1    Kia Rondo 2024    Kia    SUV   2024   10000.0
+2    Honda Civic 2010    Honda    Sedan   2010   7000.0
+What would you like to do today?
+-Add a car? enter 1
+-Search for car 2
+-Edit car info? enter 3
+-Remove a car? enter 4
+-Print the car list? enter 5
+-Save the data to a file? enter 6
+-Exit the program? Enter 0
+0
+Exiting program immediately. Goodbye!
