@@ -1,18 +1,18 @@
 class car:
-    def __init__(self,id,model,make,body,year,value):
+    def __init__(self,id,name,make,body,year,value):
+        self.__name = name
         self.__id = id
-        self.__model = model
         self.__make = make
         self.__body = body
         self.__year = year
         self.__value = value
         
     def __str__(self):
-        return f"{self.__id}  {self.__model}  {self.__make}  {self.__body}  {self.__year}  {self.__value}"
+        return f"{self.__id}  {self.__name}  {self.__make}  {self.__body}  {self.__year}  {self.__value}"
+    def set_name(self,new_name):
+        self.__name = new_name
     def set_id(self,new_id):
         self.__id = new_id
-    def set_model(self,new_model):
-        self.__model = new_model
     def set_make(self,new_make):
         self.__make = new_make
     def set_body(self,new_body):
@@ -21,10 +21,10 @@ class car:
         self.__year = new_year
     def set_value(self,new_value):
         self.__value = new_value
+    def get_name(self):
+        return self.__name
     def get_id(self):
         return self.__id
-    def get_model(self):
-        return self.__model
     def get_make(self):
         return self.__make
     def get_body(self):
@@ -47,8 +47,9 @@ def main_menu():
         print("-Remove a car? enter 4")
         print("-Print the car list? enter 5")
         print("-Save the data to a file? enter 6")
+        print("-Exit the program? Enter 0")
         user_input = int(input(""))
-        if user_input == 1 or user_input == 2 or user_input == 3 or user_input == 4 or user_input == 5 or user_input == 6:
+        if user_input == 1 or user_input == 2 or user_input == 3 or user_input == 4 or user_input == 5 or user_input == 6 or user_input == 0:
             check_loop = False
     return user_input
 def search_id(cars,id):
@@ -76,8 +77,8 @@ def search_name(carlist,name):
     car_index = -1
     for vehicle in carlist:
         if vehicle.get_name() == name:
-            student_index = carlist.index(vehicle)
-    return student_index
+            car_index = carlist.index(vehicle)
+    return car_index
 
 def add_car(carlist,id,name,make,body,year,value):
     '''
@@ -97,7 +98,7 @@ def add_car(carlist,id,name,make,body,year,value):
     for vehicle in carlist:
         if vehicle.get_id() == id:
             check_id = False
-        if vehicle.name() == name:
+        if vehicle.get_name() == name:
             check_name = False
     if check_id == False:
         print("ERROR")
@@ -148,12 +149,13 @@ def edit_car(carlist,id):
             vehicle.set_year(input_year)
             print("Value:")
             input_value = float(input(""))
+            vehicle.set_value(input_value)
             id_check = True
     if id_check == False:
         print("Car not found")
     return carlist
 
-def run_search_student(carlist):
+def run_search_car(carlist):
     '''
     function for running the search car function
     
@@ -171,7 +173,7 @@ def run_search_student(carlist):
                 print("Car found")
                 print(carlist[id_index])
             else:
-                print("Student not found")
+                print("Car not found")
         elif user_input == 2:
             print("Please enter the name of the car")
             input_name = input("")
@@ -190,20 +192,28 @@ def run_add_car(carlist):
     
     :param carlist: list of car classes
     '''
-    print("Enter id of the car, followed by the car's information")
-    print("ID:")
-    input_id = int(input(''))
-    print("Name:")
-    input_name = input("")
-    print("Make:")
-    input_make = input("")
-    print("Body:")
-    input_body = input("")
-    print("year:")
-    input_year = int(input(""))
-    print("Value:")
-    input_value = float(input(""))
-    carlist = add_car(carlist,input_id,input_name,input_make,input_body,input_year,input_value)
+    loop_check = True
+    while loop_check:
+        print("Enter id of the car, followed by the car's information")
+        print("ID:")
+        input_id = int(input(''))
+        print("Name:")
+        input_name = input("")
+        print("Make:")
+        input_make = input("")
+        print("Body:")
+        input_body = input("")
+        print("year:")
+        input_year = int(input(""))
+        print("Value:")
+        input_value = float(input(""))
+        carlist = add_car(carlist,input_id,input_name,input_make,input_body,input_year,input_value)
+        print("Would you like to add another car? (y/yes to continue, n/no to stop)")
+        choice = input("").lower()
+        if choice == "yes" or choice == "y":
+            continue
+        if choice == "no" or choice == "n":
+            loop_check = False
     return carlist
 
 def run_edit_car(carlist):
@@ -230,13 +240,16 @@ def run_remove_car(carlist):
     '''
     loop_check = True
     while loop_check:
-        print("Enter the id of the car. Enter -1 to return to the previous menu")
+        print("Enter the id of the car you want to remove from inventory.")
         input_id = int(input(""))
-        if input_id == -1:
+        carlist = remove_car(carlist,input_id)
+        print("Car removed from inventory.")
+        print("Would you like to remove more cars? y(yes)/n(no)")
+        loop_checker = input("").lower()
+        if loop_checker == "y" or loop_checker == "yes":
+            loop_check = True
+        elif loop_checker == "n" or loop_checker == "no":
             loop_check = False
-            pass
-        else:
-            carlist = remove_car(carlist,input_id)
     return carlist
 def print_list(carlist):
     '''
